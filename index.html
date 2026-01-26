@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panduan Resmi - Intisari Auto Cut Android</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        window.tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            blue: '#3498db',
+                            green: '#2ecc71',
+                            orange: '#e67e22',
+                            dark: '#1e1e2e',
+                            light: '#f8f9fa'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        .video-card-large {
+            transition: all 0.3s ease;
+        }
+        .video-card-large:hover {
+            transform: scale(1.01);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .copy-success {
+            display: none;
+            animation: fadeIn 0.3s forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .method-tab.active {
+            background-color: rgba(46, 204, 113, 0.2);
+            border-color: #2ecc71;
+            color: #2ecc71;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans leading-relaxed">
+
+    <!-- HEADER -->
+    <header class="bg-brand-dark text-white pt-10 pb-20 rounded-b-[3rem] shadow-2xl relative overflow-hidden text-center">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="inline-block bg-brand-green text-white text-xs font-bold px-4 py-1 rounded-full mb-4 uppercase tracking-widest">Android Edition</div>
+            <h1 class="text-4xl md:text-6xl font-black mb-4 text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">Intisari Auto Cut</h1>
+            <p class="text-xl text-gray-400 max-w-2xl mx-auto italic mb-10">"Satu kali klik, ribuan video viral siap posting dari HP Anda."</p>
+            
+            <!-- Quick Navigation Buttons -->
+            <div class="flex flex-wrap justify-center gap-4">
+                <button onclick="document.getElementById('video-section').scrollIntoView()" class="bg-brand-blue hover:bg-blue-600 text-white font-bold py-4 px-10 rounded-2xl shadow-lg transition transform hover:scale-105 flex items-center">
+                    <i class="fab fa-youtube mr-2 text-xl"></i> Lihat Video Tutorial
+                </button>
+                <button onclick="document.getElementById('install-section').scrollIntoView()" class="bg-white/10 hover:bg-white/20 text-white font-bold py-4 px-10 rounded-2xl transition flex items-center border border-white/20">
+                    <i class="fas fa-terminal mr-2"></i> Perintah Termux
+                </button>
+            </div>
+        </div>
+        <!-- Decorative Elements -->
+        <div class="absolute top-0 right-0 w-48 h-48 bg-brand-blue opacity-10 rounded-full -translate-y-12 translate-x-12"></div>
+        <div class="absolute bottom-0 left-0 w-64 h-64 bg-brand-green opacity-5 rounded-full translate-y-24 -translate-x-12"></div>
+    </header>
+
+    <main class="container mx-auto px-4 -mt-10 mb-20 relative z-20">
+        
+        <!-- DOWNLOAD & PROMPT SECTION -->
+        <div id="install-section" class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+            <!-- Download Box -->
+            <div class="bg-white rounded-[2.5rem] shadow-xl p-10 border border-gray-100 flex flex-col items-center text-center">
+                <div class="w-20 h-20 bg-blue-100 rounded-3xl flex items-center justify-center mb-6 text-brand-blue text-3xl shadow-inner">
+                    <i class="fas fa-download"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-3">Download Tools</h3>
+                <p class="text-sm text-gray-500 mb-8 max-w-xs leading-relaxed">Pastikan Anda mendownload file pendukung versi terbaru agar tools berjalan optimal.</p>
+                <!-- Update link drive manual -->
+                <a href="https://drive.google.com/file/d/1A1Ai1MfDP-accohEgkSE0Xh-KcDwGp7N/view?usp=sharing" target="_blank" 
+                   class="w-full bg-brand-blue hover:bg-blue-600 text-white font-bold py-5 rounded-2xl shadow-xl shadow-blue-100 transition flex items-center justify-center transform hover:-translate-y-1">
+                    <i class="fab fa-google-drive mr-3 text-2xl"></i> Buka Google Drive
+                </a>
+            </div>
+
+            <!-- Termux Prompt Box with Tabs -->
+            <div class="bg-brand-dark rounded-[2.5rem] shadow-xl p-10 text-white border border-white/5">
+                <div class="flex items-center justify-between mb-8">
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-gray-800 rounded-2xl flex items-center justify-center mr-4 text-brand-green shadow-lg">
+                            <i class="fas fa-terminal text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">Prompt Termux</h3>
+                    </div>
+                </div>
+
+                <!-- Tab Buttons -->
+                <div class="flex space-x-3 mb-6 bg-white/5 p-1.5 rounded-2xl">
+                    <button onclick="showMethod('all')" id="btn-all" class="method-tab active flex-1 py-3 text-xs font-bold rounded-xl border border-transparent transition">Sekali Paste</button>
+                    <button onclick="showMethod('step')" id="btn-step" class="method-tab flex-1 py-3 text-xs font-bold rounded-xl border border-transparent transition">Satu per Satu</button>
+                </div>
+
+                <!-- Content: Sekali Paste -->
+                <div id="method-all">
+                    <div class="bg-black/50 rounded-2xl p-5 font-mono text-[11px] text-brand-green border border-gray-700/50 break-all mb-6 leading-relaxed relative">
+                        <span id="promptAll">cd ~ && pkg update && pkg upgrade -y && pkg install curl dos2unix -y && curl -L "https://github.com/faldi-intisariClipper/Intisari-Auto-Cut/releases/latest/download/intisariAutoCut.sh" -o intisariAutoCut.sh && dos2unix intisariAutoCut.sh && chmod +x intisariAutoCut.sh && ./intisariAutoCut.sh</span>
+                    </div>
+                    <button onclick="copyText('promptAll')" class="w-full bg-brand-green/20 hover:bg-brand-green/30 text-brand-green font-bold py-4 rounded-2xl transition flex items-center justify-center border border-brand-green/30">
+                        <i class="fas fa-copy mr-2"></i> Salin Semua Perintah
+                    </button>
+                </div>
+
+                <!-- Content: Satu per Satu -->
+                <div id="method-step" class="hidden space-y-4">
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between bg-black/40 p-3 rounded-xl border border-gray-800">
+                            <div class="truncate mr-4">
+                                <p class="text-[9px] text-gray-500 uppercase font-black">1. Masuk Home</p>
+                                <code id="s1" class="text-[10px] text-brand-green truncate">cd ~</code>
+                            </div>
+                            <button onclick="copyText('s1')" class="text-[10px] bg-gray-700 px-3 py-1.5 rounded-lg hover:bg-gray-600 transition">Copy</button>
+                        </div>
+                        <div class="flex items-center justify-between bg-black/40 p-3 rounded-xl border border-gray-800">
+                            <div class="truncate mr-4">
+                                <p class="text-[9px] text-gray-500 uppercase font-black">2. Persiapan Package</p>
+                                <code id="s2" class="text-[10px] text-brand-green truncate">pkg update && pkg upgrade -y && pkg install curl dos2unix -y</code>
+                            </div>
+                            <button onclick="copyText('s2')" class="text-[10px] bg-gray-700 px-3 py-1.5 rounded-lg hover:bg-gray-600 transition">Copy</button>
+                        </div>
+                        <div class="flex items-center justify-between bg-black/40 p-3 rounded-xl border border-gray-800">
+                            <div class="truncate mr-4">
+                                <p class="text-[9px] text-gray-500 uppercase font-black">3. Download Script</p>
+                                <code id="s3" class="text-[10px] text-brand-green truncate">curl -L "https://github.com/faldi-intisariClipper/Intisari-Auto-Cut/releases/latest/download/intisariAutoCut.sh" -o intisariAutoCut.sh</code>
+                            </div>
+                            <button onclick="copyText('s3')" class="text-[10px] bg-gray-700 px-3 py-1.5 rounded-lg hover:bg-gray-600 transition">Copy</button>
+                        </div>
+                        <div class="flex items-center justify-between bg-black/40 p-3 rounded-xl border border-gray-800">
+                            <div class="truncate mr-4">
+                                <p class="text-[9px] text-gray-500 uppercase font-black">4. Eksekusi</p>
+                                <code id="s4" class="text-[10px] text-brand-green truncate">dos2unix intisariAutoCut.sh && chmod +x intisariAutoCut.sh && ./intisariAutoCut.sh</code>
+                            </div>
+                            <button onclick="copyText('s4')" class="text-[10px] bg-gray-700 px-3 py-1.5 rounded-lg hover:bg-gray-600 transition">Copy</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="copyNotice" class="copy-success text-center mt-4 text-brand-green text-xs font-bold bg-brand-green/10 py-2 rounded-xl">
+                    <i class="fas fa-check-circle mr-2"></i> Perintah berhasil disalin!
+                </div>
+            </div>
+        </div>
+
+        <!-- VIDEO TUTORIAL SECTION -->
+        <section id="video-section" class="mb-20">
+            <div class="text-center mb-16">
+                <span class="text-brand-blue font-black uppercase tracking-[0.3em] text-[10px] bg-blue-50 px-4 py-2 rounded-full">Academy</span>
+                <h2 class="text-4xl font-black mt-4 mb-4">Galeri Tutorial Lengkap</h2>
+                <div class="w-24 h-1.5 bg-brand-blue mx-auto rounded-full"></div>
+            </div>
+
+            <!-- Vertical List of Large Video Cards -->
+            <div class="space-y-10 max-w-6xl mx-auto">
+                
+                <!-- Video 1 -->
+                <div class="video-card-large bg-white rounded-[3rem] overflow-hidden shadow-lg border border-gray-100 flex flex-col md:flex-row group">
+                    <div class="md:w-1/2 aspect-video relative overflow-hidden">
+                        <img src="https://img.youtube.com/vi/tNUj29EZDXY/maxresdefault.jpg" class="w-full h-full object-cover transition duration-700 group-hover:scale-110" alt="Instalasi">
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-black/50 transition flex items-center justify-center">
+                            <a href="https://youtu.be/tNUj29EZDXY" target="_blank" class="w-20 h-20 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/40 text-white text-3xl group-hover:scale-125 transition duration-500">
+                                <i class="fas fa-play"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="p-10 md:w-1/2 flex flex-col justify-center">
+                        <span class="text-brand-blue text-[10px] font-black uppercase tracking-widest mb-4 inline-block px-3 py-1 bg-blue-50 rounded-full">Langkah Utama</span>
+                        <h3 class="text-3xl font-black mb-4">Panduan Instalasi Dasar</h3>
+                        <p class="text-gray-500 mb-8 leading-relaxed">Video fundamental yang wajib ditonton. Menjelaskan proses setup Termux dari awal hingga tools siap digunakan untuk memproduksi video viral.</p>
+                        <a href="https://youtu.be/tNUj29EZDXY" target="_blank" class="text-brand-blue font-bold text-lg flex items-center group-hover:translate-x-2 transition duration-300">
+                            Tonton Sekarang <i class="fas fa-arrow-right ml-3"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Video 2 -->
+                <div class="video-card-large bg-white rounded-[3rem] overflow-hidden shadow-lg border border-gray-100 flex flex-col md:flex-row-reverse group">
+                    <div class="md:w-1/2 aspect-video relative overflow-hidden">
+                        <img src="https://img.youtube.com/vi/kqr2KLT7hog/maxresdefault.jpg" class="w-full h-full object-cover transition duration-700 group-hover:scale-110" alt="YT Download">
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-black/50 transition flex items-center justify-center">
+                            <a href="https://youtu.be/kqr2KLT7hog" target="_blank" class="w-20 h-20 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/40 text-white text-3xl group-hover:scale-125 transition duration-500">
+                                <i class="fas fa-play"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="p-10 md:w-1/2 flex flex-col justify-center">
+                        <span class="text-brand-green text-[10px] font-black uppercase tracking-widest mb-4 inline-block px-3 py-1 bg-green-50 rounded-full">Fitur Canggih</span>
+                        <h3 class="text-3xl font-black mb-4">Download YT & Auto Cut</h3>
+                        <p class="text-gray-500 mb-8 leading-relaxed">Pelajari cara mengunduh video apa pun dari YouTube dan membiarkan Smart Engine memotongnya menjadi klip-klip viral secara otomatis.</p>
+                        <a href="https://youtu.be/kqr2KLT7hog" target="_blank" class="text-brand-green font-bold text-lg flex items-center group-hover:-translate-x-2 transition duration-300">
+                            Tonton Sekarang <i class="fas fa-arrow-right ml-3"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Video 4: PENTING -->
+                <div class="video-card-large bg-brand-orange/5 rounded-[3.5rem] overflow-hidden shadow-2xl border-4 border-brand-orange flex flex-col md:flex-row group relative">
+                    <div class="absolute -top-1 -left-1 bg-brand-orange text-white text-xs font-black px-8 py-2 rounded-br-[2rem] z-30 shadow-lg uppercase tracking-tighter">
+                        <i class="fas fa-star mr-2"></i> Materi Paling Penting !!
+                    </div>
+                    <div class="md:w-1/2 aspect-video relative overflow-hidden">
+                        <img src="https://img.youtube.com/vi/MUbja_RT_wc/maxresdefault.jpg" class="w-full h-full object-cover transition duration-700 group-hover:scale-110" alt="Analisa Hook">
+                        <div class="absolute inset-0 bg-brand-orange/10 group-hover:bg-brand-orange/30 transition flex items-center justify-center">
+                            <a href="https://youtu.be/MUbja_RT_wc" target="_blank" class="w-24 h-24 bg-brand-orange rounded-full flex items-center justify-center text-white text-4xl shadow-2xl group-hover:scale-110 transition duration-500 border-4 border-white/30">
+                                <i class="fas fa-play"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="p-12 md:w-1/2 flex flex-col justify-center">
+                        <span class="text-brand-orange text-[11px] font-black uppercase tracking-[0.2em] mb-4 inline-block">Strategi Viral</span>
+                        <h3 class="text-4xl font-black mb-4 text-brand-dark">Analisa Hook Video Viral</h3>
+                        <p class="text-gray-700 font-medium mb-10 leading-relaxed italic">"Hook yang tepat adalah 80% keberhasilan video Anda." Video ini membongkar rahasia menentukan titik potong agar audiens tidak bisa berhenti menonton.</p>
+                        <a href="https://youtu.be/MUbja_RT_wc" target="_blank" class="bg-brand-orange text-white px-10 py-5 rounded-2xl font-bold text-lg inline-flex items-center self-start hover:bg-orange-600 shadow-xl shadow-orange-200 transition transform hover:-translate-y-1">
+                            Buka Rahasia FYP <i class="fas fa-bolt ml-3 text-2xl"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Video 3 -->
+                <div class="video-card-large bg-white rounded-[3rem] overflow-hidden shadow-lg border border-gray-100 flex flex-col md:flex-row group">
+                    <div class="md:w-1/2 aspect-video relative overflow-hidden">
+                        <img src="https://img.youtube.com/vi/RQabL1mMg8w/maxresdefault.jpg" class="w-full h-full object-cover transition duration-700 group-hover:scale-110" alt="Gallery Cut">
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-black/50 transition flex items-center justify-center">
+                            <a href="https://youtu.be/RQabL1mMg8w" target="_blank" class="w-20 h-20 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/40 text-white text-3xl group-hover:scale-125 transition duration-500">
+                                <i class="fas fa-play"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="p-10 md:w-1/2 flex flex-col justify-center">
+                        <span class="text-gray-400 text-[10px] font-black uppercase tracking-widest mb-4 inline-block px-3 py-1 bg-gray-50 rounded-full">Manajemen File</span>
+                        <h3 class="text-3xl font-black mb-4">Cut Video Dari Galeri</h3>
+                        <p class="text-gray-500 mb-8 leading-relaxed">Punya konten mentah di galeri HP? Gunakan tutorial ini untuk mengolah stok video pribadi Anda menjadi konten berantai yang siap posting.</p>
+                        <a href="https://youtu.be/RQabL1mMg8w" target="_blank" class="text-brand-dark font-bold text-lg flex items-center group-hover:translate-x-2 transition duration-300">
+                            Tonton Sekarang <i class="fas fa-arrow-right ml-3"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Video 5 -->
+                <div class="video-card-large bg-white rounded-[3rem] overflow-hidden shadow-lg border border-gray-100 flex flex-col md:flex-row-reverse group">
+                    <div class="md:w-1/2 aspect-video relative overflow-hidden">
+                        <img src="https://img.youtube.com/vi/GKWUcFUSeTA/maxresdefault.jpg" class="w-full h-full object-cover transition duration-700 group-hover:scale-110" alt="Reframe">
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-black/50 transition flex items-center justify-center">
+                            <a href="https://youtu.be/GKWUcFUSeTA" target="_blank" class="w-20 h-20 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/40 text-white text-3xl group-hover:scale-125 transition duration-500">
+                                <i class="fas fa-play"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="p-10 md:w-1/2 flex flex-col justify-center">
+                        <span class="text-brand-blue text-[10px] font-black uppercase tracking-widest mb-4 inline-block px-3 py-1 bg-blue-50 rounded-full">Update Versi 7.1</span>
+                        <h3 class="text-3xl font-black mb-4">Fitur Auto Reframe 9:16</h3>
+                        <p class="text-gray-500 mb-8 leading-relaxed">Ubah video Landscape menjadi Portrait (9:16) secara cerdas tanpa merusak komposisi utama. Sangat cocok untuk Shorts, TikTok, dan Reels.</p>
+                        <a href="https://youtu.be/GKWUcFUSeTA" target="_blank" class="text-brand-blue font-bold text-lg flex items-center group-hover:-translate-x-2 transition duration-300">
+                            Tonton Sekarang <i class="fas fa-arrow-right ml-3"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Video 6 -->
+                <div class="video-card-large bg-white rounded-[3rem] overflow-hidden shadow-lg border border-gray-100 flex flex-col md:flex-row group">
+                    <div class="md:w-1/2 aspect-video relative overflow-hidden">
+                        <img src="https://img.youtube.com/vi/kFwb9L48anE/maxresdefault.jpg" class="w-full h-full object-cover transition duration-700 group-hover:scale-110" alt="Simple Editing">
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-black/50 transition flex items-center justify-center">
+                            <a href="https://youtu.be/kFwb9L48anE" target="_blank" class="w-20 h-20 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/40 text-white text-3xl group-hover:scale-125 transition duration-500">
+                                <i class="fas fa-play"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="p-10 md:w-1/2 flex flex-col justify-center">
+                        <span class="text-brand-green text-[10px] font-black uppercase tracking-widest mb-4 inline-block px-3 py-1 bg-green-50 rounded-full">Efisiensi Kerja</span>
+                        <h3 class="text-3xl font-black mb-4">Editing Simpel Parah!</h3>
+                        <p class="text-gray-500 mb-8 leading-relaxed">Ingin video terlihat lebih unik? Gunakan trik editing kilat dalam video ini untuk memberikan sentuhan akhir pada hasil potongan tools Intisari.</p>
+                        <a href="https://youtu.be/kFwb9L48anE" target="_blank" class="text-brand-green font-bold text-lg flex items-center group-hover:translate-x-2 transition duration-300">
+                            Tonton Sekarang <i class="fas fa-arrow-right ml-3"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- FOOTER CONTACT -->
+        <div class="bg-brand-green/10 border-4 border-brand-green/30 rounded-[3.5rem] p-12 text-center shadow-2xl relative overflow-hidden">
+            <div class="relative z-10">
+                <h3 class="text-3xl font-black mb-4">Butuh Bantuan Aktivasi?</h3>
+                <p class="text-lg text-gray-600 mb-10 max-w-xl mx-auto leading-relaxed">Admin Faldi siap membantu mendaftarkan ID Android Anda agar tools dapat digunakan selamanya tanpa batas.</p>
+                <a href="https://wa.me/628567870040" target="_blank" class="inline-flex items-center bg-brand-green hover:bg-green-600 text-white font-bold px-12 py-6 rounded-3xl shadow-2xl shadow-green-300 transition transform hover:scale-110 active:scale-95">
+                    <i class="fab fa-whatsapp text-4xl mr-4"></i> Chat Admin Sekarang
+                </a>
+            </div>
+            <!-- Decorative Icon -->
+            <i class="fab fa-whatsapp absolute -bottom-10 -right-10 text-[15rem] text-brand-green opacity-5 transform -rotate-12"></i>
+        </div>
+
+    </main>
+
+    <footer class="py-16 text-center text-gray-400 text-sm border-t border-gray-200 bg-white">
+        <div class="flex items-center justify-center space-x-2 mb-4">
+            <div class="w-8 h-8 bg-brand-dark rounded-lg flex items-center justify-center text-white font-bold text-xs">I</div>
+            <span class="font-bold tracking-tighter text-brand-dark">Intisari <span class="text-brand-blue">Auto Cut</span></span>
+        </div>
+        <p class="font-bold">&copy; 2026 Intisari Smart Tools. Official Android Edition.</p>
+        <p class="mt-2 text-[10px] opacity-50 uppercase tracking-[0.4em]">Designed for Ultimate Efficiency</p>
+    </footer>
+
+    <script>
+        function showMethod(method) {
+            const allDiv = document.getElementById('method-all');
+            const stepDiv = document.getElementById('method-step');
+            const btnAll = document.getElementById('btn-all');
+            const btnStep = document.getElementById('btn-step');
+
+            if (method === 'all') {
+                allDiv.classList.remove('hidden');
+                stepDiv.classList.add('hidden');
+                btnAll.classList.add('active');
+                btnStep.classList.remove('active');
+            } else {
+                allDiv.classList.add('hidden');
+                stepDiv.classList.remove('hidden');
+                btnAll.classList.remove('active');
+                btnStep.classList.add('active');
+            }
+        }
+
+        function copyText(elementId) {
+            const text = document.getElementById(elementId).innerText;
+            const textArea = document.createElement("textarea");
+            textArea.value = text;
+            document.body.appendChild(textArea);
+            textArea.select();
+            
+            try {
+                document.execCommand("Copy");
+                const notice = document.getElementById('copyNotice');
+                notice.style.display = 'block';
+                setTimeout(() => {
+                    notice.style.display = 'none';
+                }, 3000);
+            } catch (err) {
+                console.error('Gagal menyalin text', err);
+            }
+            
+            textArea.remove();
+        }
+    </script>
+</body>
+</html>
