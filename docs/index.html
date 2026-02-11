@@ -64,6 +64,10 @@
             width: 100%;
             height: 100%;
         }
+        .ai-gradient-btn {
+            background: linear-gradient(135deg, #4285f4 0%, #9b51e0 100%);
+            box-shadow: 0 10px 20px -5px rgba(66, 133, 244, 0.4);
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans leading-relaxed">
@@ -84,7 +88,6 @@
                 </a>
             </div>
         </div>
-        <!-- Decorative Elements -->
         <div class="absolute top-0 right-0 w-96 h-96 bg-brand-blue opacity-5 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl"></div>
         <div class="absolute bottom-0 left-0 w-80 h-80 bg-brand-green opacity-5 rounded-full translate-y-1/2 -translate-x-1/2 blur-3xl"></div>
     </header>
@@ -95,8 +98,8 @@
         <section id="master-tutorial" class="mb-24">
             <div class="bg-white rounded-[3.5rem] shadow-2xl p-4 md:p-8 border border-gray-100 max-w-5xl mx-auto overflow-hidden text-center">
                 <div class="mb-8">
-                    <h2 class="text-3xl md:text-4xl font-black text-brand-dark mb-2 uppercase">Penjelasan Alur Keseluruhan</h2>
-                    <p class="text-gray-500 font-medium italic">Wajib ditonton untuk pemula agar paham cara kerja Smart Engine</p>
+                    <h2 class="text-3xl md:text-4xl font-black text-brand-dark mb-2 uppercase italic">Penjelasan Alur Keseluruhan</h2>
+                    <p class="text-gray-500 font-medium italic text-sm">Wajib ditonton untuk pemula agar paham cara kerja Smart Engine</p>
                 </div>
                 <div class="video-container shadow-2xl">
                     <iframe 
@@ -104,25 +107,13 @@
                         title="YouTube video player" 
                         frameborder="0" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        referrerpolicy="strict-origin-when-cross-origin" 
                         allowfullscreen>
                     </iframe>
-                </div>
-                <div class="mt-8 flex flex-col md:flex-row items-center justify-between px-4 gap-4">
-                    <div class="flex items-center text-left">
-                        <div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center text-brand-orange mr-4 flex-shrink-0">
-                            <i class="fas fa-lightbulb"></i>
-                        </div>
-                        <p class="text-sm text-gray-600">Tip: Pahami alur <strong>Download -> Cut -> Hook</strong> untuk hasil maksimal.</p>
-                    </div>
-                    <a href="https://wa.me/628567870040" target="_blank" class="text-brand-green font-black flex items-center hover:scale-105 transition whitespace-nowrap">
-                        Aktivasi Sekarang <i class="fab fa-whatsapp ml-2 text-2xl"></i>
-                    </a>
                 </div>
             </div>
         </section>
 
-        <!-- ACADEMY HUB - 5 VIDEO GRID -->
+        <!-- ACADEMY HUB - ALL VIDEOS RESTORED -->
         <section class="mb-24">
             <div class="text-center mb-16">
                 <span class="text-brand-blue font-black uppercase tracking-[0.3em] text-[10px] bg-blue-50 px-4 py-2 rounded-full">Academy Modules</span>
@@ -215,14 +206,44 @@
             </div>
         </section>
 
-        <!-- INSTALASI DASAR - LARGE SECTION (NEW VIDEO LINK) -->
+        <!-- NEW: GEMINI CUSTOM AI SECTION -->
+        <section id="gemini-support" class="mb-24 px-4">
+            <div class="bg-white rounded-[4rem] shadow-2xl p-8 md:p-12 border border-gray-100 max-w-6xl mx-auto overflow-hidden">
+                <div class="flex flex-col lg:flex-row items-center gap-12">
+                    <div class="w-full lg:w-1/2 text-center lg:text-left">
+                        <div class="inline-block bg-purple-50 text-purple-600 text-[10px] font-black px-4 py-2 rounded-full mb-6 uppercase tracking-widest">Powered by AI</div>
+                        <h2 class="text-4xl md:text-5xl font-black text-brand-dark mb-6 uppercase italic leading-tight">Optimasi Konten <br>Dengan Gemini AI</h2>
+                        <p class="text-gray-500 mb-10 text-lg leading-relaxed italic">"Gunakan asisten AI kustom untuk merancang strategi konten viral, skrip video, dan ide hook tanpa batas."</p>
+                        
+                        <a href="https://gemini.google.com/gem/1on4dsBC62Q2chNbsU5GQZj8I5oWMoMXa?usp=sharing" target="_blank" 
+                           class="ai-gradient-btn inline-flex items-center text-white font-black py-6 px-10 rounded-3xl transition transform hover:scale-105 shadow-xl">
+                            <i class="fas fa-robot text-3xl mr-4"></i> BUKA GEMINI CUSTOM
+                        </a>
+                    </div>
+                    <div class="w-full lg:w-1/2">
+                        <div class="video-container shadow-2xl border-8 border-gray-50/50">
+                            <iframe 
+                                src="https://www.youtube.com/embed/xnal92HvK5E" 
+                                title="Tutorial Gemini Custom" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <p class="text-center mt-4 text-xs font-bold text-gray-400 uppercase tracking-tighter italic">Pelajari cara maksimalkan AI untuk konten Anda</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SETUP GUIDE -->
         <section id="setup-guide" class="mb-16 scroll-mt-20">
             <div class="bg-brand-dark rounded-[4rem] shadow-2xl p-8 md:p-12 border-4 border-brand-blue/30 max-w-6xl mx-auto overflow-hidden text-white">
                 <div class="flex flex-col md:flex-row items-center gap-12 text-center md:text-left">
                     <div class="w-full md:w-3/5">
                         <div class="video-container shadow-2xl border-4 border-white/10">
                             <iframe 
-                                src="https://www.youtube.com/embed/PJ4OA5NRbio?si=SetupBasicsUpdate" 
+                                src="https://www.youtube.com/embed/PJ4OA5NRbio" 
                                 title="Instalasi Dasar Baru" 
                                 frameborder="0" 
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
@@ -232,87 +253,47 @@
                     </div>
                     <div class="w-full md:w-2/5">
                         <span class="text-brand-blue font-black uppercase tracking-[0.3em] text-[12px] bg-brand-blue/10 px-4 py-2 rounded-full mb-6 inline-block">Panduan Utama</span>
-                        <h2 class="text-4xl font-black mb-6 uppercase italic leading-tight">Panduan <br> Instalasi Dasar</h2>
-                        <p class="text-gray-400 mb-8 leading-relaxed">Ikuti video terbaru ini untuk proses setup Termux yang lebih lancar dan kompatibel dengan versi Intisari terbaru.</p>
-                        <div class="space-y-4 text-left inline-block">
-                            <div class="flex items-center text-sm font-bold text-brand-green">
-                                <i class="fas fa-check-circle mr-3"></i> Clean Install Termux
-                            </div>
-                            <div class="flex items-center text-sm font-bold text-brand-green">
-                                <i class="fas fa-check-circle mr-3"></i> Bypass Update Error
-                            </div>
-                            <div class="flex items-center text-sm font-bold text-brand-green">
-                                <i class="fas fa-check-circle mr-3"></i> Running Script Baru
-                            </div>
+                        <h2 class="text-4xl font-black mb-6 uppercase italic leading-tight text-white">Panduan <br> Instalasi Dasar</h2>
+                        <p class="text-gray-400 mb-8 leading-relaxed italic">Ikuti video terbaru ini untuk proses setup Termux yang lancar dan kompatibel dengan versi terbaru.</p>
+                        <div class="flex flex-wrap gap-4 justify-center md:justify-start">
+                             <div class="flex items-center text-xs font-bold text-brand-green"><i class="fas fa-check-circle mr-2"></i> Clean Install</div>
+                             <div class="flex items-center text-xs font-bold text-brand-green"><i class="fas fa-check-circle mr-2"></i> Bypass Error</div>
+                             <div class="flex items-center text-xs font-bold text-brand-green"><i class="fas fa-check-circle mr-2"></i> Run Script</div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- DOWNLOAD & COPY PASTE SECTION -->
-        <div id="install-section" class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-20 text-center">
+        <!-- DOWNLOAD & COPY PASTE -->
+        <div id="install-section" class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-20">
             <!-- Download Box -->
-            <div class="bg-white rounded-[3rem] shadow-xl p-10 border border-gray-100 flex flex-col items-center group">
-                <div class="w-20 h-20 bg-blue-100 rounded-3xl flex items-center justify-center mb-6 text-brand-blue text-3xl shadow-inner group-hover:scale-110 transition">
+            <div class="bg-white rounded-[3rem] shadow-xl p-10 border border-gray-100 flex flex-col items-center group text-center">
+                <div class="w-20 h-20 bg-blue-100 rounded-3xl flex items-center justify-center mb-6 text-brand-blue text-3xl">
                     <i class="fas fa-cloud-download-alt"></i>
                 </div>
-                <h3 class="text-2xl font-black mb-3 uppercase">Unduh Bahan & File</h3>
-                <p class="text-sm text-gray-500 mb-8 max-w-xs leading-relaxed italic">"Dapatkan folder aset dan file pendukung versi terbaru."</p>
+                <h3 class="text-2xl font-black mb-3 uppercase italic">Unduh Bahan</h3>
+                <p class="text-gray-400 text-xs mb-8 italic">Dapatkan folder aset pendukung terbaru.</p>
                 <a href="https://drive.google.com/file/d/13T5BjFeW7LlBMt2meWTyyji6iOd-BTxR/view?usp=sharing" target="_blank" 
-                   class="w-full bg-brand-blue hover:bg-blue-600 text-white font-black py-6 rounded-3xl shadow-xl shadow-blue-100 transition flex items-center justify-center transform hover:-translate-y-1">
-                    <i class="fab fa-google-drive mr-3 text-2xl"></i> BUKA GOOGLE DRIVE
+                   class="w-full bg-brand-blue hover:bg-blue-600 text-white font-black py-6 rounded-3xl transition flex items-center justify-center transform hover:-translate-y-1">
+                    <i class="fab fa-google-drive mr-3 text-2xl"></i> GOOGLE DRIVE
                 </a>
             </div>
 
-            <!-- Termux Prompt Box -->
-            <div class="bg-brand-dark rounded-[3rem] shadow-xl p-10 text-white border border-white/5 relative overflow-hidden text-left">
-                <div class="flex items-center justify-between mb-8">
-                    <div class="flex items-center">
-                        <div class="w-12 h-12 bg-gray-800 rounded-2xl flex items-center justify-center mr-4 text-brand-green">
-                            <i class="fas fa-terminal"></i>
-                        </div>
-                        <h3 class="text-xl font-black uppercase tracking-tighter">Copy Paste Perintah</h3>
+            <!-- Termux Box -->
+            <div class="bg-brand-dark rounded-[3rem] shadow-xl p-10 text-white border border-white/5 relative overflow-hidden">
+                <div class="flex items-center mb-6">
+                    <div class="w-10 h-10 bg-gray-800 rounded-xl flex items-center justify-center mr-4 text-brand-green">
+                        <i class="fas fa-terminal"></i>
                     </div>
-                    <span class="text-[10px] font-black bg-brand-green/20 text-brand-green px-3 py-1 rounded-full border border-brand-green/30">TERMUX</span>
+                    <h3 class="text-xl font-black uppercase tracking-tighter italic">Copy Paste Perintah</h3>
                 </div>
-
-                <!-- Tabs -->
-                <div class="flex space-x-2 mb-6 bg-white/5 p-1 rounded-2xl">
-                    <button onclick="showMethod('all')" id="btn-all" class="method-tab active flex-1 py-3 text-xs font-bold rounded-xl transition">Sekali Paste</button>
-                    <button onclick="showMethod('step')" id="btn-step" class="method-tab flex-1 py-3 text-xs font-bold rounded-xl transition">Step by Step</button>
+                <div class="bg-black/50 rounded-2xl p-5 font-mono text-[10px] text-brand-green border border-gray-700/50 break-all mb-6">
+                    <span id="promptAll">cd ~ && pkg update && pkg upgrade -y && pkg install curl dos2unix -y && curl -L "https://github.com/faldi-intisariClipper/Intisari-Auto-Cut/releases/download/5.4/intisariAutoCut.sh" -o intisariAutoCut.sh && dos2unix intisariAutoCut.sh && chmod +x intisariAutoCut.sh && ./intisariAutoCut.sh</span>
                 </div>
-
-                <!-- Content: All in One -->
-                <div id="method-all">
-                    <div class="bg-black/50 rounded-2xl p-5 font-mono text-[10px] text-brand-green border border-gray-700/50 break-all mb-6 leading-relaxed">
-                        <span id="promptAll">cd ~ && pkg update && pkg upgrade -y && pkg install curl dos2unix -y && curl -L "https://github.com/faldi-intisariClipper/Intisari-Auto-Cut/releases/download/5.4/intisariAutoCut.sh" -o intisariAutoCut.sh && dos2unix intisariAutoCut.sh && chmod +x intisariAutoCut.sh && ./intisariAutoCut.sh</span>
-                    </div>
-                    <button onclick="copyText('promptAll')" class="w-full bg-brand-green hover:bg-green-600 text-brand-dark font-black py-5 rounded-2xl transition flex items-center justify-center shadow-lg shadow-brand-green/20">
-                        <i class="fas fa-copy mr-2"></i> SALIN SEMUA PERINTAH
-                    </button>
-                </div>
-
-                <!-- Content: Steps -->
-                <div id="method-step" class="hidden space-y-3">
-                    <div class="bg-black/40 p-3 rounded-xl border border-gray-800 flex justify-between items-center group">
-                        <code id="s1" class="text-[10px] text-brand-green truncate mr-2">cd ~</code>
-                        <button onclick="copyText('s1')" class="text-[9px] bg-gray-700 hover:bg-brand-blue px-3 py-1.5 rounded-lg transition">Copy</button>
-                    </div>
-                    <div class="bg-black/40 p-3 rounded-xl border border-gray-800 flex justify-between items-center group">
-                        <code id="s2" class="text-[10px] text-brand-green truncate mr-2">pkg update && pkg upgrade -y && pkg install curl dos2unix -y</code>
-                        <button onclick="copyText('s2')" class="text-[9px] bg-gray-700 hover:bg-brand-blue px-3 py-1.5 rounded-lg transition">Copy</button>
-                    </div>
-                    <div class="bg-black/40 p-3 rounded-xl border border-gray-800 flex justify-between items-center group">
-                        <code id="s3" class="text-[10px] text-brand-green truncate mr-2">curl -L "https://github.com/faldi-intisariClipper/Intisari-Auto-Cut/releases/download/5.4/intisariAutoCut.sh" | bash</code>
-                        <button onclick="copyText('s3')" class="text-[9px] bg-gray-700 hover:bg-brand-blue px-3 py-1.5 rounded-lg transition">Copy</button>
-                    </div>
-                    <div class="bg-black/40 p-3 rounded-xl border border-gray-800 flex justify-between items-center group">
-                        <code id="s4" class="text-[10px] text-brand-green truncate mr-2">dos2unix intisariAutoCut.sh && chmod +x intisariAutoCut.sh && ./intisariAutoCut.sh</code>
-                        <button onclick="copyText('s4')" class="text-[9px] bg-gray-700 hover:bg-brand-blue px-3 py-1.5 rounded-lg transition">Copy</button>
-                    </div>
-                </div>
-
+                <button onclick="copyText('promptAll')" class="w-full bg-brand-green hover:bg-green-600 text-brand-dark font-black py-5 rounded-2xl transition shadow-lg shadow-brand-green/20">
+                    SALIN SEMUA PERINTAH
+                </button>
                 <div id="copyNotice" class="copy-success text-center mt-4 text-brand-green text-xs font-bold bg-brand-green/10 py-2 rounded-xl">
                     <i class="fas fa-check-circle mr-2"></i> Perintah disalin!
                 </div>
@@ -320,11 +301,11 @@
         </div>
 
         <!-- CONTACT HELP -->
-        <div class="bg-gradient-to-br from-brand-green/20 to-brand-blue/10 border-4 border-white rounded-[4rem] p-12 text-center shadow-2xl relative overflow-hidden mb-20">
+        <div class="bg-gradient-to-br from-brand-green/20 to-brand-blue/10 border-4 border-white rounded-[4rem] p-12 text-center shadow-2xl mb-20 relative overflow-hidden">
             <div class="relative z-10">
-                <h3 class="text-4xl font-black mb-6 uppercase">Butuh Bantuan Aktivasi?</h3>
-                <p class="text-lg text-gray-600 mb-10 max-w-xl mx-auto leading-relaxed">Admin Faldi siap membantu mendaftarkan ID Android Anda agar tools dapat digunakan selamanya tanpa batas.</p>
-                <a href="https://wa.me/628567870040" target="_blank" class="inline-flex items-center bg-brand-green hover:bg-green-600 text-white font-black px-14 py-6 rounded-[2rem] shadow-2xl shadow-green-300/50 transition transform hover:scale-105 active:scale-95">
+                <h3 class="text-4xl font-black mb-6 uppercase italic leading-tight">Butuh Aktivasi?</h3>
+                <p class="text-lg text-gray-600 mb-10 max-w-xl mx-auto italic">Admin Faldi siap membantu mendaftarkan ID Android Anda agar tools aktif selamanya.</p>
+                <a href="https://wa.me/628567870040" target="_blank" class="inline-flex items-center bg-brand-green hover:bg-green-600 text-white font-black px-14 py-6 rounded-[2rem] shadow-2xl transition transform hover:scale-105 active:scale-95">
                     <i class="fab fa-whatsapp text-4xl mr-4"></i> Chat Admin Faldi
                 </a>
             </div>
@@ -333,7 +314,7 @@
     </main>
 
     <footer class="py-20 text-center text-gray-400 text-sm border-t border-gray-100 bg-white">
-        <div class="flex items-center justify-center space-x-2 mb-6 text-center">
+        <div class="flex items-center justify-center space-x-2 mb-6">
             <div class="w-10 h-10 bg-brand-dark rounded-xl flex items-center justify-center text-white font-black text-lg shadow-lg">I</div>
             <span class="font-black text-2xl tracking-tighter text-brand-dark italic uppercase">Intisari <span class="text-brand-blue">Auto Cut</span></span>
         </div>
@@ -341,50 +322,20 @@
     </footer>
 
     <script>
-        function showMethod(method) {
-            const allDiv = document.getElementById('method-all');
-            const stepDiv = document.getElementById('method-step');
-            const btnAll = document.getElementById('btn-all');
-            const btnStep = document.getElementById('btn-step');
-
-            if (method === 'all') {
-                allDiv.classList.remove('hidden');
-                stepDiv.classList.add('hidden');
-                btnAll.classList.add('active');
-                btnStep.classList.remove('active');
-            } else {
-                allDiv.classList.add('hidden');
-                stepDiv.classList.remove('hidden');
-                btnAll.classList.remove('active');
-                btnStep.classList.add('active');
-            }
-        }
-
         function copyText(elementId) {
             const text = document.getElementById(elementId).innerText;
             const textArea = document.createElement("textarea");
             textArea.value = text;
             document.body.appendChild(textArea);
             textArea.select();
-            
             try {
                 document.execCommand("Copy");
                 const notice = document.getElementById('copyNotice');
                 notice.style.display = 'block';
-                setTimeout(() => {
-                    notice.style.display = 'none';
-                }, 3000);
-            } catch (err) {
-                console.error('Gagal menyalin text', err);
-            }
-            
+                setTimeout(() => { notice.style.display = 'none'; }, 3000);
+            } catch (err) { console.error('Gagal menyalin text', err); }
             textArea.remove();
         }
     </script>
 </body>
 </html>
-
-
-
-
-
